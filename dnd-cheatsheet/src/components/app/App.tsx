@@ -1,31 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useLocalStorage } from '../../context/LocalStorageContext';
 
-type Character = {
-  name: string;
-  classes: Record<string, number>;
-  knownSpells: string[];
-  features: string[];
-};
-
-const defaultCharacter: Character = {
-  name: "Aria Windrunner",
-  classes: {
-    wizard: 5,
-    rogue: 2
-  },
-  knownSpells: ["Mage Hand", "Fireball", "Shield"],
-  features: ["Sneak Attack", "Arcane Recovery"]
-};
-
-function App() {
-  const [character, setCharacter] = useState<Character>(() => {
-    const saved = localStorage.getItem("myCharacter");
-    return saved ? JSON.parse(saved) : defaultCharacter;
-  });
-
-  useEffect(() => {
-    localStorage.setItem("myCharacter", JSON.stringify(character));
-  }, [character]);
+const App = () => {
+  const { character, saveCharacter } = useLocalStorage();
 
   return (
     <div className="App">
@@ -44,8 +21,17 @@ function App() {
       <ul>
         {character.features.map(f => <li key={f}>{f}</li>)}
       </ul>
+      <button
+        onClick={() => {
+          // Example of modifying the character data
+          const updatedCharacter = { ...character, name: "New Name" };
+          saveCharacter(updatedCharacter);
+        }}
+      >
+        Remove Name
+      </button>
     </div>
   );
-}
+};
 
 export default App;
