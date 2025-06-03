@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|c:\\users\\niels\\documents\\real documents\\programming\\dnd\\dnd-cheatsheet\\back-end\\simplespells\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|c:\\users\\niels\\documents\\real documents\\programming\\dnd\\dnd-cheatsheet\\back-end\\simplespells\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|c:\\users\\niels\\documents\\real documents\\programming\\dnd\\dnd-cheatsheet\\back-end\\simplespells\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|c:\\users\\niels\\documents\\real documents\\programming\\dnd\\dnd-cheatsheet\\back-end\\simplespells\\data\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|solutionrelative:data\\mydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|c:\\users\\niels\\documents\\real documents\\programming\\dnd\\dnd-cheatsheet\\back-end\\simplespells\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{93E09EC0-B954-4B8C-AF57-2CDAAA2ED750}|SimpleSpells.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-31T20:41:04.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-31T20:41:02.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T20:14:46.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\Data\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\MyDbContext.cs",
+              "ToolTip": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\Data\\MyDbContext.cs",
+              "RelativeToolTip": "Data\\MyDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T20:13:49.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\niels\\Documents\\Real Documents\\Programming\\dnd\\DnD-Cheatsheet\\back-end\\SimpleSpells\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA5wBcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-31T20:10:28.059Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
