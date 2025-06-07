@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SimpleSpells.Model;
 
 namespace SimpleSpells.Data
 {
@@ -8,11 +9,6 @@ namespace SimpleSpells.Data
 
         // Example DbSet
         public DbSet<Spell> Spells { get; set; }
-    }
-
-    public class Spell
-    {
-        public int Id { get; set; }
-        public required string Name { get; set; }
+        public DbSet<Character> Characters { get; set; }
     }
 }
