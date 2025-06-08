@@ -6,8 +6,6 @@ namespace SimpleSpells.Data
     public class MyDbContext : DbContext
     {
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) { }
-
-        // Example DbSet
         public DbSet<Spell> Spells { get; set; }
         public DbSet<Character> Characters { get; set; }
     }

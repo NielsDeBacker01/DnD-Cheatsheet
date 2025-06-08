@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using SimpleSpells.Data;
+using SimpleSpells.Endpoints;
+using SimpleSpells.Middleware;
+using SimpleSpells.Repositories;
+using SimpleSpells.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,11 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MyDbContext>(options =>
     options.UseNpgsql(connectionString));
-
-builder.Services.AddControllers();
+    
+builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddScoped<ICharacterRepository, CharacterRepository>();
+builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<ISpellRepository, SpellRepository>();
+builder.Services.AddScoped<ISpellService, SpellService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -38,11 +44,11 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 //Change policies to avoid cors during development
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
     app.UseCors("AllowAll");
 }
 else
@@ -52,6 +58,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapControllers();
+app.MapSpellEndpoints();
+app.MapCharacterEndpoints();
 
-app.Run("http://0.0.0.0:5000");
+app.Run();
