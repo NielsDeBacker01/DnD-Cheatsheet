@@ -7,6 +7,6 @@ namespace SimpleSpells.DTOs
         public int Level { get; set; }
         public int SpellAtkBonus { get; set; }
         public string Class { get; set; } = null!; 
-        public List<SpellDto> Spells { get; set; } = new();
+        public List<int> SpellIds { get; set; } = new();
     }
 }

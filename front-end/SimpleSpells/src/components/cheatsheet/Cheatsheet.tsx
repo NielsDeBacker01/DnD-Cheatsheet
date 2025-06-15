@@ -1,11 +1,15 @@
-import { useLocalStorage } from '../../context/LocalStorageContext';
+import { useEffect, useState } from "react";
 
 function Cheatsheet() {
-  const { character, saveCharacter } = useLocalStorage();
+
+  const [character, setCharacter] = useState({name: "placeholder", level: 0, spellAtk: 0, knownSpells: ["fire bolt"]});
+
+  useEffect(() => {
+  }, []);
 
   const handleSpellAtkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.target.value, 10);
-    saveCharacter({ ...character, spellAtk: newValue });
+    setCharacter({ ...character, spellAtk: newValue });
   };
 
   return (
@@ -38,7 +42,7 @@ function Cheatsheet() {
               newSpell = "Fallback spell"
               break;
           }
-          saveCharacter({...character, knownSpells: [newSpell, ...character.knownSpells.slice(1)]});
+          setCharacter({...character, knownSpells: [newSpell, ...character.knownSpells.slice(1)]});
         }}
       >
         toggle cantrip
