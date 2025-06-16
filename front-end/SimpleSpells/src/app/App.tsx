@@ -1,10 +1,16 @@
 import Cheatsheet from '../components/cheatsheet/Cheatsheet';
+import { CharacterProvider } from '../context/CharacterContext';
+import { SpellProvider } from '../context/SpellContext';
 
 const App = () => {
   return (
-    <div className="App">
-      <Cheatsheet></Cheatsheet>
-    </div>
+    <SpellProvider>
+      <CharacterProvider>
+        <div className="App">
+          <Cheatsheet></Cheatsheet>
+        </div>
+      </CharacterProvider>
+    </SpellProvider>
   );
 };
 

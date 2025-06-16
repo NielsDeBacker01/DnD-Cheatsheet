@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import SpellLibrary from "../spelllibrary/Spelllibrary";
+//import { useCurrentCharacter } from "../../context/CharacterContext";
 
 function Cheatsheet() {
-
   const [character, setCharacter] = useState({name: "placeholder", level: 0, spellAtk: 0, knownSpells: ["fire bolt"]});
+  //const { currentCharacter, loading, error} = useCurrentCharacter();
 
   useEffect(() => {
   }, []);
@@ -13,7 +15,7 @@ function Cheatsheet() {
   };
 
   return (
-    <div className="Cheatsheet">
+    <div className="cheatsheet">
       <h1>{character.name} Lvl: {character.level}</h1>
       <div>
         <h2>SpellAtk:</h2>
@@ -25,28 +27,7 @@ function Cheatsheet() {
           {character.knownSpells.map(spell => <li key={spell}>{spell}</li>)}
         </ul>
       </div>
-      <button
-        onClick={() => {
-          let newSpell: string = "";
-          switch (character.knownSpells[0]) {
-            case "Fire Bolt":
-              newSpell = "Eldritch Blast";
-              break;
-            case "Eldritch Blast":
-              newSpell = "Acid Splash";
-              break;
-            case "Acid Splash":
-              newSpell = "Fire Bolt";
-              break;
-            default:
-              newSpell = "Fallback spell"
-              break;
-          }
-          setCharacter({...character, knownSpells: [newSpell, ...character.knownSpells.slice(1)]});
-        }}
-      >
-        toggle cantrip
-      </button>
+      <SpellLibrary></SpellLibrary>
     </div>
   );
 }
