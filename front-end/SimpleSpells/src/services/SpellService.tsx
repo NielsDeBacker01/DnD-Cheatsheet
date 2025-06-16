@@ -6,7 +6,7 @@ export class SpellService {
 
   constructor(baseUrl?: string) {
     this.api = axios.create({
-      baseURL: baseUrl || `${process.env.REACT_APP_API_BASE_URL}/spells` || 'http://localhost:5000/spells',
+      baseURL: baseUrl || `${import.meta.env.VITE_API_BASE_URL}/spells` || 'http://localhost:5000/spells',
       headers: {
         'Content-Type': 'application/json',
       },
