@@ -48,6 +48,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+.vs
 
 # History
 .history/
