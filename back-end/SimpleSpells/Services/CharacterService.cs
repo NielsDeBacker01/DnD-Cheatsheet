@@ -65,7 +65,8 @@ namespace SimpleSpells.Services
             Name = character.Name,
             Level = character.Level,
             SpellAtkBonus = character.SpellAtkBonus,
-            Class = character.Class.ToString()
+            Class = character.Class.ToString(),
+            SpellIds = character.SpellIds
         };
 
         private static Character MapToEntity(CharacterDto dto) => new()
@@ -74,7 +75,8 @@ namespace SimpleSpells.Services
             Name = dto.Name,
             Level = dto.Level,
             SpellAtkBonus = dto.SpellAtkBonus,
-            Class = Enum.TryParse<CharacterClass>(dto.Class, out var parsedClass) ? parsedClass : CharacterClass.Artificer
+            Class = Enum.TryParse<CharacterClass>(dto.Class, out var parsedClass) ? parsedClass : CharacterClass.Artificer,
+            SpellIds = dto.SpellIds
         };
 
         #endregion

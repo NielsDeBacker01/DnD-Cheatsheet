@@ -10,9 +10,10 @@ namespace SimpleSpells.DTOs
         public string Requirements { get; set; } = "";
         public string Targets { get; set; } = "1";
         public int Range { get; set; }
-        public string AEO { get; set; } = "";
+        public string AOE { get; set; } = "";
         public string Hitcheck { get; set; } = null!;
         public string Effect { get; set; } = null!;
         public string Upcast { get; set; } = "";
+        public List<string> Availability { get; set; } = new();
     }
 }

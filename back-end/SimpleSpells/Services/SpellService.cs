@@ -39,10 +39,11 @@ namespace SimpleSpells.Services
                 Requirements = spell.Requirements,
                 Targets = spell.Targets,
                 Range = spell.Range,
-                AEO = spell.AEO,
+                AOE = spell.AOE,
                 Hitcheck = spell.Hitcheck.ToString(),
                 Effect = spell.Effect,
-                Upcast = spell.Upcast
+                Upcast = spell.Upcast,
+                Availability = spell.Availability.Select(a => a.ToString()).ToList()
             };
         }
 
@@ -58,10 +59,11 @@ namespace SimpleSpells.Services
                 Requirements = dto.Requirements,
                 Targets = dto.Targets,
                 Range = dto.Range,
-                AEO = dto.AEO,
+                AOE = dto.AOE,
                 Hitcheck = Enum.TryParse<CheckType>(dto.Hitcheck, out var check) ? check : CheckType.Guaranteed,
                 Effect = dto.Effect,
-                Upcast = dto.Upcast
+                Upcast = dto.Upcast,
+                Availability = dto.Availability.Select(Enum.Parse<SpellSource>).ToList()
             };
         }
 
