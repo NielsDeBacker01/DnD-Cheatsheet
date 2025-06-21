@@ -48,7 +48,17 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
-.vs
+.vs/
 
 # History
 .history/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/

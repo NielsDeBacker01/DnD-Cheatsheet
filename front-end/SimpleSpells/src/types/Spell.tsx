@@ -5,6 +5,8 @@ export type Spell = {
   spellLevel: number;
   vsm: string;
   requirements: string;
+  action: ActionCost;
+  concentration: string;
   targets: string;
   range: number;
   aoe: string;
@@ -14,5 +16,6 @@ export type Spell = {
   availabilty: SpellSource;
 };
 
+export enum ActionCost{Action, Bonus_Action, Reaction};
 export enum CheckType {Guaranteed,Spell_Attack,Weapon_Attack,Strength_Saving_Throw,Dexterity_Saving_Throw,Constitution_Saving_Throw,Wisdom_Saving_Throw,Intelligence_Saving_Throw,Charisma_Saving_Throw,Flat_Saving_Throw}
 export enum SpellSource {Artificer,Barbarian,Bard,Cleric,Druid,Fighter,Monk,Paladin,Ranger,Rogue,Sorcer,Warlock,Wizard}
