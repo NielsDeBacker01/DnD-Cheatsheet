@@ -40,7 +40,7 @@ namespace SimpleSpells.Repositories
             existing.Level = character.Level;
             existing.SpellAtkBonus = character.SpellAtkBonus;
             existing.Class = character.Class;
-            existing.SpellIds = character.SpellIds;
+            existing.CharacterSpells = character.CharacterSpells;
 
             await _context.SaveChangesAsync();
             return existing;

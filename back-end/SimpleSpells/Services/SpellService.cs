@@ -45,7 +45,7 @@ namespace SimpleSpells.Services
                 Hitcheck = spell.Hitcheck.ToString(),
                 Effect = spell.Effect,
                 Upcast = spell.Upcast,
-                Availability = spell.Availability.Select(a => a.ToString()).ToList()
+                Sources = spell.Sources.Select(a => a.Source).ToList(),
             };
         }
 
@@ -67,7 +67,7 @@ namespace SimpleSpells.Services
                 Hitcheck = Enum.TryParse<CheckType>(dto.Hitcheck, out var check) ? check : CheckType.Guaranteed,
                 Effect = dto.Effect,
                 Upcast = dto.Upcast,
-                Availability = dto.Availability.Select(Enum.Parse<SpellSource>).ToList()
+                Sources = dto.Sources.Select(a => new SpellSourceMapping{Source = a}).ToList()
             };
         }
 

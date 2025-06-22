@@ -49,6 +49,7 @@ Thumbs.db
 *.sln
 *.sw?
 .vs/
+back-end/SimpleSpells/.vs/
 
 # History
 .history/

@@ -1,3 +1,5 @@
+using SimpleSpells.Model;
+
 namespace SimpleSpells.DTOs
 {
     public class SpellDto
@@ -16,6 +18,6 @@ namespace SimpleSpells.DTOs
         public string Hitcheck { get; set; } = null!;
         public string Effect { get; set; } = null!;
         public string Upcast { get; set; } = "";
-        public List<string> Availability { get; set; } = new();
+        public List<SpellSource> Sources { get; set; } = new();
     }
 }

@@ -20,13 +20,13 @@ namespace SimpleSpells.Endpoints
                 return character is not null ? Results.Ok(character) : Results.NotFound();
             });
 
-            app.MapPost("/characters", async ([FromBody] CharacterDto dto, ICharacterService service) =>
+            app.MapPost("/characters", async ([FromBody] CharacterMinimalDto dto, ICharacterService service) =>
             {
                 var created = await service.AddAsync(dto);
                 return Results.Created($"/characters/{created.Id}", created);
             });
 
-            app.MapPut("/characters/{id:int}", async (int id, [FromBody] CharacterDto dto, [FromServices] ICharacterService service) =>
+            app.MapPut("/characters/{id:int}", async (int id, [FromBody] CharacterMinimalDto dto, [FromServices] ICharacterService service) =>
             {
                 if (id != dto.Id)
                     return Results.BadRequest("ID mismatch");

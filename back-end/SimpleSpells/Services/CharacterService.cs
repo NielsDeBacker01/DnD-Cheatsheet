@@ -13,26 +13,26 @@ namespace SimpleSpells.Services
             _repository = repository;
         }
 
-        public async Task<List<CharacterDto>> GetAllAsync()
+        public async Task<List<CharacterMinimalDto>> GetAllAsync()
         {
             var characters = await _repository.GetAllAsync();
-            return characters.Select(MapToDto).ToList();
+            return characters.Select(MapToMinimalDto).ToList();
         }
 
-        public async Task<CharacterDto?> GetByIdAsync(int id)
+        public async Task<CharacterMinimalDto?> GetByIdAsync(int id)
         {
             var character = await _repository.GetByIdAsync(id);
-            return character == null ? null : MapToDto(character);
+            return character == null ? null : MapToMinimalDto(character);
         }
 
-        public async Task<CharacterDto> AddAsync(CharacterDto dto)
+        public async Task<CharacterMinimalDto> AddAsync(CharacterMinimalDto dto)
         {
             var character = MapToEntity(dto);
             var created = await _repository.AddAsync(character);
-            return MapToDto(created);
+            return MapToMinimalDto(created);
         }
 
-        public async Task<CharacterDto?> UpdateAsync(int id, CharacterDto dto)
+        public async Task<CharacterMinimalDto?> UpdateAsync(int id, CharacterMinimalDto dto)
         {
             var existing = await _repository.GetByIdAsync(id);
             if (existing == null) return null;
@@ -48,8 +48,17 @@ namespace SimpleSpells.Services
                 existing.Class = parsedClass;
             }
 
+            // Update CharacterSpells - clear existing and add new ones
+            existing.CharacterSpells.Clear();
+            if (dto.SpellIds != null)
+            {
+                existing.CharacterSpells.AddRange(
+                    dto.SpellIds.Select(spellId => new CharacterSpell { SpellId = spellId, CharacterId = id })
+                );
+            }
+
             var updated = await _repository.UpdateAsync(existing);
-            return updated == null ? null : MapToDto(updated);
+            return updated == null ? null : MapToMinimalDto(updated);
         }
 
         public async Task<bool> DeleteAsync(int id)
@@ -59,24 +68,24 @@ namespace SimpleSpells.Services
 
         #region Mapping functions
 
-        private static CharacterDto MapToDto(Character character) => new()
+        private static CharacterMinimalDto MapToMinimalDto(Character character) => new()
         {
             Id = character.Id,
             Name = character.Name,
             Level = character.Level,
             SpellAtkBonus = character.SpellAtkBonus,
             Class = character.Class.ToString(),
-            SpellIds = character.SpellIds
+            SpellIds = character.CharacterSpells?.Select(cs => cs.SpellId).ToList() ?? new List<int>()
         };
 
-        private static Character MapToEntity(CharacterDto dto) => new()
+        private static Character MapToEntity(CharacterMinimalDto dto) => new()
         {
             Id = dto.Id,
             Name = dto.Name,
             Level = dto.Level,
             SpellAtkBonus = dto.SpellAtkBonus,
             Class = Enum.TryParse<CharacterClass>(dto.Class, out var parsedClass) ? parsedClass : CharacterClass.Artificer,
-            SpellIds = dto.SpellIds
+            CharacterSpells = dto.SpellIds?.Select(spellId => new CharacterSpell { SpellId = spellId }).ToList() ?? new List<CharacterSpell>()
         };
 
         #endregion
