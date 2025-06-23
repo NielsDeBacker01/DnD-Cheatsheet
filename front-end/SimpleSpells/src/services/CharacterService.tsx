@@ -1,5 +1,6 @@
 import { Character } from "../types/Character";
 import axios, { AxiosInstance } from 'axios';
+import { CharacterWithSpells } from "../types/CharacterWithSpells";
 
 export class CharacterService {
   private readonly api: AxiosInstance;
@@ -25,6 +26,27 @@ export class CharacterService {
   async getCharacterById(id: number): Promise<Character> {
     try {
       const response = await this.api.get<Character>(`/${id}`);
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 404) {
+        throw new Error('Character not found');
+      }
+      throw new Error(`Failed to fetch character: ${this.getErrorMessage(error)}`);
+    }
+  }
+
+  async getAllCharactersWithSpells(): Promise<CharacterWithSpells[]> {
+    try {
+      const response = await this.api.get<CharacterWithSpells[]>('/spells');
+      return response.data;
+    } catch (error) {
+      throw new Error(`Failed to fetch characters: ${this.getErrorMessage(error)}`);
+    }
+  }
+
+  async getCharacterWithSpellsById(id: number): Promise<CharacterWithSpells> {
+    try {
+      const response = await this.api.get<CharacterWithSpells>(`/spells/${id}`);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response?.status === 404) {

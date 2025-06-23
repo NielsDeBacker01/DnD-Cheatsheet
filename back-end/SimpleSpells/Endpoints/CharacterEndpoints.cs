@@ -8,25 +8,14 @@ namespace SimpleSpells.Endpoints
     {
         public static void MapCharacterEndpoints(this WebApplication app)
         {
+            //functions for the default minimal characters
             app.MapGet("/characters", async (ICharacterService service) =>
-            {
-                var characters = await service.GetAllAsync();
-                return Results.Ok(characters);
-            });
-
-            app.MapGet("/characters/{id:int}", async (int id, [FromServices] ICharacterService service) =>
-            {
-                var character = await service.GetByIdAsync(id);
-                return character is not null ? Results.Ok(character) : Results.NotFound();
-            });
-
-            app.MapGet("/characters/minimal", async (ICharacterService service) =>
             {
                 var characters = await service.GetAllMinimalAsync();
                 return Results.Ok(characters);
             });
 
-            app.MapGet("/characters/minimal/{id:int}", async (int id, [FromServices] ICharacterService service) =>
+            app.MapGet("/characters/{id:int}", async (int id, [FromServices] ICharacterService service) =>
             {
                 var character = await service.GetMinimalByIdAsync(id);
                 return character is not null ? Results.Ok(character) : Results.NotFound();
@@ -51,6 +40,18 @@ namespace SimpleSpells.Endpoints
             {
                 var deleted = await service.DeleteAsync(id);
                 return deleted ? Results.NoContent() : Results.NotFound();
+            });
+            // functions for the full characters containing their spells
+            app.MapGet("/characters/spells", async (ICharacterService service) =>
+            {
+                var characters = await service.GetAllAsync();
+                return Results.Ok(characters);
+            });
+
+            app.MapGet("/characters/spells/{id:int}", async (int id, [FromServices] ICharacterService service) =>
+            {
+                var character = await service.GetByIdAsync(id);
+                return character is not null ? Results.Ok(character) : Results.NotFound();
             });
         }
     }
