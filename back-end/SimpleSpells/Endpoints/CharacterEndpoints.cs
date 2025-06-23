@@ -20,6 +20,18 @@ namespace SimpleSpells.Endpoints
                 return character is not null ? Results.Ok(character) : Results.NotFound();
             });
 
+            app.MapGet("/characters/minimal", async (ICharacterService service) =>
+            {
+                var characters = await service.GetAllMinimalAsync();
+                return Results.Ok(characters);
+            });
+
+            app.MapGet("/characters/minimal/{id:int}", async (int id, [FromServices] ICharacterService service) =>
+            {
+                var character = await service.GetMinimalByIdAsync(id);
+                return character is not null ? Results.Ok(character) : Results.NotFound();
+            });
+
             app.MapPost("/characters", async ([FromBody] CharacterMinimalDto dto, ICharacterService service) =>
             {
                 var created = await service.AddAsync(dto);
