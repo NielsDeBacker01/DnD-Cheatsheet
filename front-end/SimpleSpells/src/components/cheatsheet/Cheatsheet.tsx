@@ -1,33 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import SpellLibrary from "../spelllibrary/Spelllibrary";
-//import { useCurrentCharacter } from "../../context/CharacterContext";
+import CharacterBar from "../characterbar/CharacterBar";
+import SpellBook from "../spellbook/SpellBook";
+import { useCurrentCharacter } from "../../context/CharacterContext";
+import Sidebar from "../sidebar/Sidebar";
 
 function Cheatsheet() {
-  const [character, setCharacter] = useState({name: "placeholder", level: 0, spellAtk: 0, knownSpells: ["fire bolt"]});
-  //const { currentCharacter, loading, error} = useCurrentCharacter();
+  
+  const { currentCharacter, loading, error} = useCurrentCharacter();
 
   useEffect(() => {
   }, []);
 
-  const handleSpellAtkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseInt(e.target.value, 10);
-    setCharacter({ ...character, spellAtk: newValue });
-  };
+  let content
+  if (!currentCharacter)
+  {
+    content = <div>No Character is currently selected</div>
+  } 
+  else
+  {
+    if (loading) content = <div>Loading Character...</div>;
+    if (error) content = <div>Error: {error}</div>;
+    content = (
+    <div className="cheatsheet-main">
+        <SpellBook></SpellBook>
+        <SpellLibrary></SpellLibrary>
+    </div>
+    )
+  }
 
   return (
     <div className="cheatsheet">
-      <h1>{character.name} Lvl: {character.level}</h1>
-      <div>
-        <h2>SpellAtk:</h2>
-        <input type="number" value={character.spellAtk} onChange={handleSpellAtkChange} min={0} max={20}></input>
-      </div>
-      <div>
-        <h2>Spells:</h2>
-        <ul>
-          {character.knownSpells.map(spell => <li key={spell}>{spell}</li>)}
-        </ul>
-      </div>
-      <SpellLibrary></SpellLibrary>
+      <Sidebar></Sidebar>
+      <CharacterBar></CharacterBar>
+      {content}
     </div>
   );
 }
