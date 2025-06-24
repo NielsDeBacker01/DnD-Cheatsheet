@@ -42,3 +42,6 @@ export class SpellService {
     return error instanceof Error ? error.message : 'Unknown error';
   }
 }
+
+//singleton instance
+export const spellService = new SpellService(); 

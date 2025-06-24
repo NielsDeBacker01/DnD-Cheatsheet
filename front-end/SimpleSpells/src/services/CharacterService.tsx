@@ -102,3 +102,6 @@ export class CharacterService {
     return error instanceof Error ? error.message : 'Unknown error';
   }
 }
+
+//singleton instance
+export const characterService = new CharacterService();

@@ -13,7 +13,7 @@ function SpellLibrary() {
 
     return(
         <div className="spell-library">
-        <h1>Spell library: </h1>
+        <h1 className="text-4xl font-bold">Spell library: </h1>
         <ul>
             {spells.map(spell => (
             <li key={spell.id}>{spell.name}</li>

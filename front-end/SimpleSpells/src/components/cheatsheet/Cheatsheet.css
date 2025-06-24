@@ -1,1 +1,9 @@
+.cheatsheet-spells {
+    border: 0.25rem red solid;
+    height: 80%;
+}
 
+.character-bar{
+    border: 0.25rem green solid;
+    height: 20%;
+}
