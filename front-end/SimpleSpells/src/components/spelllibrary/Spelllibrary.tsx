@@ -13,12 +13,11 @@ function SpellLibrary() {
 
     return(
         <div className="spell-library">
-        <h1 className="text-4xl font-bold">Spell library: </h1>
-        <ul>
-            {spells.map(spell => (
-            <li key={spell.id}>{spell.name}</li>
-            ))}
-        </ul>
+            <ul>
+                {spells.map(spell => (
+                <li key={spell.id}>{spell.name}</li>
+                ))}
+            </ul>
         </div>
     );
 }

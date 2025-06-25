@@ -15,7 +15,7 @@ function CharacterBar() {
                 <p className="h-[40%] flex items-end pr-[2rem] text-2xl font-bold">{currentCharacter.name} Lvl: {currentCharacter.level}</p>
                 <div className="h-[40%] flex pt-1rem items-end">
                     <p className="pr-[1rem]">SpellAtk:</p>
-                    <input type="number" className="text-right border border-gray-300 rounded" value={currentCharacter.spellAtkBonus} min={0} max={20}></input>
+                    <input type="number" className="text-right border border-gray-300 rounded" defaultValue={currentCharacter.spellAtkBonus} min={0} max={20}></input>
                 </div>
             </>
             }

@@ -15,12 +15,18 @@ namespace SimpleSpells.Repositories
 
         public async Task<List<Character>> GetAllAsync()
         {
-            return await _context.Characters.ToListAsync();
+            return await _context.Characters
+            .Include(c => c.CharacterSpells)
+                .ThenInclude(cs => cs.Spell)
+            .ToListAsync();
         }
 
         public async Task<Character?> GetByIdAsync(int id)
         {
-            return await _context.Characters.FindAsync(id);
+            return await _context.Characters
+                .Include(c => c.CharacterSpells)
+                    .ThenInclude(cs => cs.Spell)
+                .FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task<Character> AddAsync(Character character)
@@ -32,7 +38,7 @@ namespace SimpleSpells.Repositories
 
         public async Task<Character?> UpdateAsync(Character character)
         {
-            var existing = await _context.Characters.FindAsync(character.Id);
+            var existing = await _context.Characters.Include(c => c.CharacterSpells).FirstOrDefaultAsync(c => c.Id == character.Id);
             if (existing == null) return null;
 
             // Update properties
@@ -43,7 +49,7 @@ namespace SimpleSpells.Repositories
             existing.CharacterSpells = character.CharacterSpells;
 
             await _context.SaveChangesAsync();
-            return existing;
+            return existing;            
         }
 
         public async Task<bool> DeleteAsync(int id)
