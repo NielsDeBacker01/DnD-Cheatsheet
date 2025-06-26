@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSpells } from '../../context/SpellContext';
+import SpellBlock from "../spellblock/SpellBlock";
 
 //displays a list of spells to add/remove for the current character
 function SpellLibrary() {
@@ -15,7 +16,9 @@ function SpellLibrary() {
         <div className="spell-library">
             <ul>
                 {spells.map(spell => (
-                <li key={spell.id}>{spell.name}</li>
+                <li key={spell.id}>
+                    <SpellBlock spell={spell}/>
+                </li>
                 ))}
             </ul>
         </div>

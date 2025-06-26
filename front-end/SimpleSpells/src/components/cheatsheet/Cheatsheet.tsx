@@ -18,11 +18,11 @@ function Cheatsheet() {
             <div className="cheatsheet-spells p-4">
                 <div className="mb-4 space-x-2">
                     {currentCharacter ? 
-                        <button onClick={() => setLibraryToggle(false)} className={`px-4 py-2 rounded ${ libraryToggle === false ? "bg-orange-400" : "bg-gray-600"}`}>
+                        <button onClick={() => setLibraryToggle(false)} className={`px-4 py-2 rounded ${ libraryToggle === false ? "active-tab" : "inactive-tab"}`}>
                         Your Spells
                         </button> : null
                     }
-                    <button onClick={() => setLibraryToggle(true)} className={`px-4 py-2 rounded ${ libraryToggle === true ? "bg-orange-400" : "bg-gray-600"}`}>
+                    <button onClick={() => setLibraryToggle(true)} className={`px-4 py-2 rounded ${ libraryToggle === true ? "active-tab" : "inactive-tab"}`}>
                     Manage Spells
                     </button>
                 </div>

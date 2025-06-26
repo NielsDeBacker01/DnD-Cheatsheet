@@ -1,4 +1,4 @@
-import { Character } from "../types/Character";
+import { Character, CharacterClass } from "../types/Character";
 import axios, { AxiosInstance } from 'axios';
 import { CharacterWithSpells } from "../types/CharacterWithSpells";
 
@@ -58,7 +58,12 @@ export class CharacterService {
 
   async createCharacter(character: Omit<Character, 'id'>): Promise<Character> {
     try {
-      const response = await this.api.post<Character>('', character);
+      //handle enum number issues
+      const correctCharacter = {
+        ...character,
+        class: CharacterClass[character.class],
+      };
+      const response = await this.api.post<Character>('', correctCharacter);
       return response.data;
     } catch (error) {
       throw new Error(`Failed to create character: ${this.getErrorMessage(error)}`);

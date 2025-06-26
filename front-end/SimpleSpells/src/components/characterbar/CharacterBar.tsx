@@ -28,20 +28,36 @@ function CharacterBar() {
     };
 
     const handleSave = async () => {
+        //add alternative if currentCharacter has no id and use the add function.
         if ( form.name !== undefined && form.level !== undefined && form.spellAtkBonus !== undefined && currentCharacter !== undefined) 
         {
-            const updatedCharacter: Character = {
-                id: currentCharacter.id,
+            //base for both new character or existing character
+            const baseCharacter: Omit<Character, "id"> = {
                 name: form.name,
                 level: form.level,
                 spellAtkBonus: form.spellAtkBonus,
-                class: currentCharacter.class,                
-                spellIds: currentCharacter.spellIds
+                class: currentCharacter?.class,
+                spellIds: currentCharacter?.spellIds ?? [],
             };
-            setCurrentCharacter(updatedCharacter);
-            await characterService.updateCharacter(updatedCharacter.id, updatedCharacter);
+            //handle new character
+            if(currentCharacter.id<0)
+            {
+                const createdCharacter = await characterService.createCharacter(baseCharacter);
+                setCurrentCharacter(createdCharacter);
+                console.log("New character created!", createdCharacter);            
+            }
+            //handle existing character
+            else
+            {
+                const updatedCharacter: Character = {
+                    id: currentCharacter.id,
+                    ...baseCharacter,
+                };
+                setCurrentCharacter(updatedCharacter);
+                await characterService.updateCharacter(updatedCharacter.id, updatedCharacter);
+                console.log("Character updated!", updatedCharacter);
+            }
             await refreshCharacters();
-            console.log("Character updated!", updatedCharacter);
         } else {
             console.error("Missing required character fields.");
         }
@@ -58,7 +74,7 @@ function CharacterBar() {
                     <p className="mr-[1rem]">SpellAtk:</p>
                     <input type="number" className="text-right border border-gray-300 rounded" name="spellAtkBonus" value={form.spellAtkBonus ?? 0} onChange={handleChange} min={0} max={20}></input>
                 </div>
-                <button onClick={handleSave} className="ml-auto bg-orange-500">Save</button>
+                <button onClick={handleSave} className="ml-auto">Save</button>
             </>
             }
         </div>

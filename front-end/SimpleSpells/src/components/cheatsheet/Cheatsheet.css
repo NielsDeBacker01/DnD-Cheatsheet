@@ -5,3 +5,12 @@
 .character-bar{
     height: 15%;
 }
+
+.inactive-tab{
+    background-color: rgb(97, 97, 97);
+}
+
+.cheatsheet-spelltab ul{
+    display: flex;
+    flex-wrap: wrap;
+}
