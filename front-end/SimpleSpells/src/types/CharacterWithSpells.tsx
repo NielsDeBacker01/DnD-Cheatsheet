@@ -1,4 +1,5 @@
 import { Spell } from "./Spell";
+import { CharacterClass } from "./Character";
 
 export type CharacterWithSpells = {
   id: number;
@@ -8,5 +9,3 @@ export type CharacterWithSpells = {
   class: CharacterClass;
   spells: Spell[];
 };
-
-export enum CharacterClass { Artificer, Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard}

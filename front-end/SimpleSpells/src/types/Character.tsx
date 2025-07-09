@@ -7,4 +7,18 @@ export type Character = {
   spellIds: number[];
 };
 
-export enum CharacterClass { Artificer, Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard}
+export enum CharacterClass {
+  Artificer = "Artificer",
+  Barbarian = "Barbarian",
+  Bard = "Bard",
+  Cleric = "Cleric",
+  Druid = "Druid",
+  Fighter = "Fighter",
+  Monk = "Monk",
+  Paladin = "Paladin",
+  Ranger = "Ranger",
+  Rogue = "Rogue",
+  Sorcerer = "Sorcerer",
+  Warlock = "Warlock",
+  Wizard = "Wizard",
+}

@@ -5,7 +5,7 @@ import { characterService } from '../../services/CharacterService';
 import './Sidebar.css'
 
 function Sidebar() {
-    const { setCurrentCharacter, allCharacters, refreshCharacters } = useCurrentCharacter();
+    const { setCurrentCharacter, allCharacters, refreshCharacters, currentCharacter } = useCurrentCharacter();
 
     const handleNewCharacter = async () => {
         const newCharacter: Character = {
@@ -35,7 +35,7 @@ function Sidebar() {
                 {allCharacters.map((char) => (
                 <li key={char.id} onClick={() => setCurrentCharacter(char)} className="p-2 pl-3 border-b border-gray-300">
                     <div className="flex">
-                        <p className="cursor-pointer hover:text-orange-500">{char.name}</p>
+                        <p className={`cursor-pointer hover:text-orange-500 ${ char.id === currentCharacter?.id ? "font-bold" : ""}`}>{char.id === currentCharacter?.id ? "-" : ""} {char.name}</p>
                         <button onClick={async () => {handleDeleteCharacter(char.id)}} className="special-button cursor-pointer p-0 rounded ml-auto hover:text-red-500"> <Trash2 className="w-5 h-5"/> </button>
                     </div>
                 </li>
