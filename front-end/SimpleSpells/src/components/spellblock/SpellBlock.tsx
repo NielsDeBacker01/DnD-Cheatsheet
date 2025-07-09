@@ -6,7 +6,6 @@ type SpellBlockProps = {
     spell: Spell;
 };
 
-//displays a list of spells to add/remove for the current character
 function SpellBlock({spell}:SpellBlockProps) {
 
     useEffect(() => {

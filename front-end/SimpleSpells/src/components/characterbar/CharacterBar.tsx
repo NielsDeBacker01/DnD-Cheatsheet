@@ -3,7 +3,6 @@ import { useCurrentCharacter } from "../../context/CharacterContext";
 import { characterService } from "../../services/CharacterService";
 import { Character } from "../../types/Character";
 
-//displays a list of spells to add/remove for the current character
 function CharacterBar() {
     const { currentCharacter, setCurrentCharacter, refreshCharacters } = useCurrentCharacter();
     

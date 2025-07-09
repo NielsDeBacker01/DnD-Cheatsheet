@@ -4,7 +4,6 @@ import { Character, CharacterClass } from '../../types/Character';
 import { characterService } from '../../services/CharacterService';
 import './Sidebar.css'
 
-//displays a list of spells to add/remove for the current character
 function Sidebar() {
     const { setCurrentCharacter, allCharacters, refreshCharacters } = useCurrentCharacter();
 

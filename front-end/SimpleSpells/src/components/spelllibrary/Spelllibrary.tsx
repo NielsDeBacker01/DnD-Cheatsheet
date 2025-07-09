@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useSpells } from '../../context/SpellContext';
 import SpellBlock from "../spellblock/SpellBlock";
 
-//displays a list of spells to add/remove for the current character
 function SpellLibrary() {
     const { spells, loading, error} = useSpells();
 

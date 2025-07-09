@@ -3,7 +3,6 @@ import { useCurrentCharacter } from "../../context/CharacterContext";
 import { useSpells } from "../../context/SpellContext";
 import SpellBlock from "../spellblock/SpellBlock";
 
-//displays a list of spells to add/remove for the current character
 function SpellBook() {
     const { currentCharacter } = useCurrentCharacter();
     const { spells, loading } = useSpells();
