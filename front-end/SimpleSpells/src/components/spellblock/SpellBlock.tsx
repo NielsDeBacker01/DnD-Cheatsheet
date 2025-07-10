@@ -12,7 +12,7 @@ function SpellBlock({spell}:SpellBlockProps) {
     }, []);
 
     return(
-        <div className="spell-block rounded-xl m-2 w-[25rem] border-4">
+        <div className="spell-block rounded-xl m-2 w-[25rem] border-4 ml-0">
             <div className="flex border-b-2">
                 <div className="w-[50%] border-r-2 border-graydark flex items-center p-2">
                     <a className="underline text-orange-400 mr-1 font-bold" href={spell.url}>{spell.name.split("{")[0]}</a>
