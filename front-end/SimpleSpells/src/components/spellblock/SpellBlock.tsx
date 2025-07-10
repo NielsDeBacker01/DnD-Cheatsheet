@@ -12,23 +12,23 @@ function SpellBlock({spell}:SpellBlockProps) {
     }, []);
 
     return(
-        <div className="spell-block rounded-xl m-2 w-[25rem] border-4 ml-0">
+        <div className="spell-block rounded-xl m-2 w-[25rem] border-4">
             <div className="flex border-b-2">
                 <div className="w-[50%] border-r-2 border-graydark flex items-center p-2">
                     <a className="underline text-orange-400 mr-1 font-bold" href={spell.url}>{spell.name.split("{")[0]}</a>
-                    <p className="text-xs text-zinc-400">({spell.vsm}: {spell.requirements})</p>
+                    <p className="detail-text">({spell.vsm}: {spell.requirements})</p>
                     <p className="ml-auto font-bold">{spell.spellLevel}</p>
                 </div>
                 <div className="w-[50%] items-center p-2 overflow-hidden">
-                    <div className="flex">
-                        <p className="text-xs text-zinc-400">Con: ({spell.concentration})</p>
-                        <p className="text-xs text-zinc-400">III: {spell.targets}</p>
-                        <p className="text-xs text-zinc-400">Che: {spell.hitcheck}</p>
+                    <div className="flex detail-text">
+                        <p>Con: ({spell.concentration})</p>
+                        <p>III: {spell.targets}</p>
+                        <p>Che: {spell.hitcheck}</p>
                     </div>
-                    <div className="flex">
-                        <p className="text-xs text-zinc-400">Ft: {spell.range}</p>
-                        <p className="text-xs text-zinc-400">AOE: {spell.aoe}</p>
-                        <p className="text-xs text-zinc-400">Act: {spell.action}</p>
+                    <div className="flex detail-text">
+                        <p>Ft: {spell.range}</p>
+                        <p>AOE: {spell.aoe}</p>
+                        <p>Act: {spell.action}</p>
                     </div>
                 </div>
             </div>

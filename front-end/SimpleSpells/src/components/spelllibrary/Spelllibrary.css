@@ -1,3 +1,7 @@
 .spell-block{
     border-color: #616161;
 }
+
+.spell-library .spell-block{
+    margin-left: 0rem;   
+}

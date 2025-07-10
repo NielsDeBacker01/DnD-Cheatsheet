@@ -13,7 +13,7 @@ function Cheatsheet() {
     }, []);
 
     return (
-        <div className="body">
+        <div className="body overflow-y-auto">
             <CharacterBar></CharacterBar>
             <div className="cheatsheet-spells p-4">
                 <div className="mb-4 space-x-2">

@@ -1,8 +1,10 @@
+import './Spelllibrary.css';
+import SpellBlock from "../spellblock/SpellBlock";
 import { useEffect } from "react";
 import { useSpells } from '../../context/SpellContext';
-import SpellBlock from "../spellblock/SpellBlock";
 import { useCurrentCharacter } from "../../context/CharacterContext";
 import { Character } from "../../types/Character";
+
 
 function SpellLibrary() {
     const { currentCharacter, setCurrentCharacter } = useCurrentCharacter();
