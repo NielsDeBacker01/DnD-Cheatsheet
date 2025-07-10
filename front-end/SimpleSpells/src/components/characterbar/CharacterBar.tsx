@@ -1,3 +1,4 @@
+import './CharacterBar.css';
 import { useEffect, useState } from "react";
 import { useCurrentCharacter } from "../../context/CharacterContext";
 import { characterService } from "../../services/CharacterService";
@@ -69,12 +70,12 @@ function CharacterBar() {
             {!currentCharacter ? <p>Handle no current character not currently implemented for top bar</p> : 
             <>
                 <div className="flex items-end">
-                    <input type="text" className="text-xl border border-gray-300 rounded mr-6 pl-2 font-bold" name="name" value={form.name ?? ""} onChange={handleChange}></input>
-                    <p className="mr-2  font-bold">Lvl:</p>
-                    <input type="number" className="mr-4 text-right border border-gray-300 rounded" name="level" value={form.level ?? 0} onChange={handleChange} min={0} max={20}></input>
-                    <p className="mr-2">SpellAtk:</p>
-                    <input type="number" className="mr-4 text-right border border-gray-300 rounded" name="spellAtkBonus" value={form.spellAtkBonus ?? 0} onChange={handleChange} min={0} max={20}></input>
-                    <p className="mr-2">Class:</p>
+                    <input type="text" className="text-xl text-left mr-6 pl-2 font-bold" name="name" value={form.name ?? ""} onChange={handleChange}></input>
+                    <p>Lvl:</p>
+                    <input type="number" className="text-right w-10" name="level" value={form.level ?? 0} onChange={handleChange} min={0} max={20}></input>
+                    <p>SpellAtk:</p>
+                    <input type="number" className="text-right w-10" name="spellAtkBonus" value={form.spellAtkBonus ?? 0} onChange={handleChange} min={0} max={20}></input>
+                    <p>Class:</p>
                     <select className="border rounded" name="class" value={form.class} onChange={handleChange}>
                         {Object.values(CharacterClass).map((charClass) => (
                             <option key={charClass} value={charClass}>

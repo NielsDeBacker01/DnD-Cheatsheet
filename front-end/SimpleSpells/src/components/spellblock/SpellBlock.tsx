@@ -36,7 +36,7 @@ function SpellBlock({spell}:SpellBlockProps) {
                 <p>{spell.effect}</p>
             </div>
             <div className="flex">
-                <p className="text-xs text-zinc-400 p-2">Upcast: {spell.upcast}</p>
+                <p className="detail-text p-2">Upcast: {spell.upcast}</p>
             </div>            
         </div>
     );
